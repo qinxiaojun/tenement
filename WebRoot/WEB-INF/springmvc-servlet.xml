@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+	
+	<mvc:annotation-driven>    
+		<mvc:message-converters register-defaults="true">
+	        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	            <property name="supportedMediaTypes" value="text/html;charset=UTF-8"></property>
+	        </bean>
+	    </mvc:message-converters>
+    </mvc:annotation-driven>
+    
+    <context:component-scan base-package="com.moto" /> 
+    <mvc:annotation-driven />
+	<import resource="data.xml"/>
+	
+	  <!-- 视图解析器和json解析器 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="mediaTypes">
+            <map>
+                <entry key="html" value="text/html"/>
+                <entry key="json" value="application/json"/>
+            </map>
+        </property>
+        <!-- 配置视图解析器， 指定控制器页面转向的目录及文件后缀 -->
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="prefix" value="/view/" /> 
+                    <property name="suffix" value=".jsp"/>
+                </bean>
+            </list>
+        </property>
+<!--         <property name="defaultViews"> -->
+<!--             <list> -->
+<!--                 <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" /> -->
+<!--             </list> -->
+<!--         </property> -->
+    </bean>
+    <mvc:resources mapping="/view/**" location="/view/" />
+    
+</beans>
