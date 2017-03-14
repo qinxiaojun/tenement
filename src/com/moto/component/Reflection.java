@@ -27,6 +27,7 @@ public class Reflection {
 					{
 						Class<?> cla = method.getReturnType();
 						c.getMethod("set"+fieldName, cla).invoke(obj,ConvertUtils.convert(map.get(key)[0], cla));
+						break;
 					}
 				}
 

@@ -16,7 +16,7 @@ public class SessionHelper {
 		newMap.putAll(map);
 		newMap.put("creatorid", new String[]{userid});
 		newMap.put("creator", new String[]{nickname});
-		newMap.put("creatdate", new String[]{DateUtil.toString(new Date())});
+		newMap.put("createdate", new String[]{DateUtil.toString(new Date())});
 		
 		return newMap;
 	}
