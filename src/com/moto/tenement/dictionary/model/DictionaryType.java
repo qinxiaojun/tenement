@@ -20,7 +20,7 @@ public class DictionaryType implements java.io.Serializable {
 	private Integer status;
 	private String text;
 	private String code;
-	private Timestamp createdate;
+	private String createdate;
 	private String creator;
 	private String creatorid;
 
@@ -37,7 +37,7 @@ public class DictionaryType implements java.io.Serializable {
 
 	/** full constructor */
 	public DictionaryType(String id, Integer status, String text, String code
-			, Timestamp createdate, String creator,
+			, String createdate, String creator,
 			String creatorid) {
 		
 		this.id = id;
@@ -86,12 +86,12 @@ public class DictionaryType implements java.io.Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	@Column(name = "createdate", length = 19)
-	public Timestamp getCreatedate() {
+	@Column(name = "createdate")
+	public String getCreatedate() {
 		return this.createdate;
 	}
 
-	public void setCreatedate(Timestamp createdate) {
+	public void setCreatedate(String createdate) {
 		this.createdate = createdate;
 	}
 

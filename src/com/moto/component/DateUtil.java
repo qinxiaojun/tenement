@@ -3,6 +3,7 @@ package com.moto.component;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DateUtil {
 	
@@ -29,5 +30,11 @@ public class DateUtil {
             e.printStackTrace();  
             return "";
         }  
+	}
+	
+	public static String toString(Date date)
+	{
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");  
+		return sdf.format(date);
 	}
 }

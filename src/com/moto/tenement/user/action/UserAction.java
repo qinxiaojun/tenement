@@ -38,6 +38,7 @@ public class UserAction {
 		if(user != null)
 		{
 			request.getSession().setAttribute("userid", user.getId());
+			request.getSession().setAttribute("nickname", user.getNickname());
 			return JSONObject.fromObject(user).toString();
 		}
 		else

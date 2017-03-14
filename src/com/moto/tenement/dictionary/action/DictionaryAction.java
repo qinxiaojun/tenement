@@ -1,5 +1,6 @@
 package com.moto.tenement.dictionary.action;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -11,11 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.moto.component.DateUtil;
 import com.moto.component.JsonUtil;
 import com.moto.component.Reflection;
+import com.moto.component.SessionHelper;
 import com.moto.tenement.dictionary.model.DictionaryType;
 import com.moto.tenement.dictionary.service.DictionaryService;
-import com.moto.tenement.user.model.User;
 
 @Controller
 @RequestMapping("/dic")
@@ -44,9 +46,10 @@ public class DictionaryAction {
 	public String addDicType(HttpServletRequest request)
 	{
 		Map<String, String[]> map = request.getParameterMap();
+	
 		Map<String,String> m =new HashMap<String,String>();
 		try {
-			DictionaryType dt = (DictionaryType)Reflection.setObjectValue(DictionaryType.class.getName(), map);
+			DictionaryType dt = (DictionaryType)Reflection.setObjectValue(DictionaryType.class.getName(), SessionHelper.generate(request, map));
 			dt.setId(UUID.randomUUID().toString());
 			String id = dicService.addDicType(dt);
 			m.put("result", "success");
