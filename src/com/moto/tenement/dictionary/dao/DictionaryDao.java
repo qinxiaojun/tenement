@@ -26,4 +26,11 @@ public interface DictionaryDao {
 	 * @return 类型id
 	 */
 	String addDicType(DictionaryType dt);
+	
+	/**
+	 * 新增字典子项
+	 * @param di
+	 * @return
+	 */
+	String addDicItem(DictionaryItem di);
 }

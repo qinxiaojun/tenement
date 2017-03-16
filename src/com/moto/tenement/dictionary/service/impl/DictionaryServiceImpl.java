@@ -33,5 +33,10 @@ public class DictionaryServiceImpl implements DictionaryService {
 		// TODO Auto-generated method stub
 		return dao.addDicType(dt);
 	}
+	@Override
+	public String addDicItem(DictionaryItem di) {
+		// TODO Auto-generated method stub
+		return dao.addDicItem(di);
+	}
 
 }

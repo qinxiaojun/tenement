@@ -40,7 +40,7 @@ public class DictionaryDaoImpl implements DictionaryDao{
 
 	@Override
 	public List<DictionaryItem> getDicItemList(String typeid) {
-		String sql="select d from DictionaryItem d where d.typeId =?1";
+		String sql="select d from DictionaryItem d where d.typeId =?1 order by sort";
 		
 		return em.createQuery(sql).setParameter(1, typeid).getResultList();
 	}
@@ -50,6 +50,13 @@ public class DictionaryDaoImpl implements DictionaryDao{
 	public String addDicType(DictionaryType dt) {
 		em.persist(dt);
 		return dt.getId();
+	}
+
+	@Transactional
+	@Override
+	public String addDicItem(DictionaryItem di) {
+		em.persist(di);
+		return di.getId();
 	}
 	
 	

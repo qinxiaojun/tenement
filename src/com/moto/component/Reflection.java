@@ -18,12 +18,12 @@ public class Reflection {
 		Method[] methods= c.getMethods();
 		Object obj =c.newInstance();
 		while (iterator.hasNext()) {
-			String key = iterator.next().toLowerCase();
+			String key = iterator.next();
 			for (Method method : methods) {
 				String mName = method.getName();
 				if (mName.startsWith("get") && !mName.startsWith("getClass")) {
 					String fieldName = mName.substring(3, mName.length());
-					if (key.equals(fieldName.toLowerCase())) 
+					if (key.toLowerCase().equals(fieldName.toLowerCase())) 
 					{
 						Class<?> cla = method.getReturnType();
 						c.getMethod("set"+fieldName, cla).invoke(obj,ConvertUtils.convert(map.get(key)[0], cla));
