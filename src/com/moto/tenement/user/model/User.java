@@ -82,7 +82,7 @@ public class User {
 		public void setAddress(String address) {
 			this.address = address;
 		}
-		@Column(name = "jobTitle", length = 255)
+		@Column(name = "job_title", length = 255)
 		public String getJobTitle() {
 			return jobTitle;
 		}
