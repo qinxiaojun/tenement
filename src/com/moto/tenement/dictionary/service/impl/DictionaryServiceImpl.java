@@ -38,5 +38,25 @@ public class DictionaryServiceImpl implements DictionaryService {
 		// TODO Auto-generated method stub
 		return dao.addDicItem(di);
 	}
+	@Override
+	public boolean updateDicType(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		return dao.updateDicType(map);
+	}
+	@Override
+	public boolean deleteDicType(String id) {
+		// TODO Auto-generated method stub
+		return dao.deleteDicType(id);
+	}
+	@Override
+	public boolean updateDicItem(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		return dao.updateDicItem(map);
+	}
+	@Override
+	public boolean deleteDicItem(String id) {
+		// TODO Auto-generated method stub
+		return dao.deleteDicItem(id);
+	}
 
 }

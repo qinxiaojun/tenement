@@ -81,4 +81,34 @@ public class DictionaryAction {
 		}
 		return JsonUtil.toJsonString(m);
 	}
+	
+	@ResponseBody
+	@RequestMapping("/item/update")
+	public String updateDicItem(HttpServletRequest request)
+	{
+		Map<String, String[]> map = request.getParameterMap();
+		return JsonUtil.toJsonString(dicService.updateDicItem(map));
+	}
+	
+	@ResponseBody
+	@RequestMapping("/item/delete")
+	public String delDicItem(HttpServletRequest request)
+	{
+		return JsonUtil.toJsonString(dicService.deleteDicItem(request.getParameter("itemId")));
+	}
+	
+	@ResponseBody
+	@RequestMapping("/update")
+	public String updateDicType(HttpServletRequest request)
+	{
+		Map<String, String[]> map = request.getParameterMap();
+		return JsonUtil.toJsonString(dicService.updateDicType(SessionHelper.generate(request, map)));
+	}
+	
+	@ResponseBody
+	@RequestMapping("/delete")
+	public String delDicType(HttpServletRequest request)
+	{
+		return JsonUtil.toJsonString(dicService.deleteDicType(request.getParameter("typeId")));
+	}
 }

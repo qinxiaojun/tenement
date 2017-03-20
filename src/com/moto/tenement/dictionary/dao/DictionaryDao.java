@@ -1,6 +1,7 @@
 package com.moto.tenement.dictionary.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.moto.tenement.dictionary.model.DictionaryItem;
 import com.moto.tenement.dictionary.model.DictionaryType;
@@ -33,4 +34,32 @@ public interface DictionaryDao {
 	 * @return
 	 */
 	String addDicItem(DictionaryItem di);
+	
+	/**
+	 * 修改字典类型
+	 * @param map
+	 * @return
+	 */
+	boolean updateDicType(Map<String, String[]> map);
+	
+	/**
+	 * 删除字典类型
+	 * @param id
+	 * @return
+	 */
+	boolean deleteDicType(String id);
+	
+	/**
+	 * 修改字典类型条目
+	 * @param map
+	 * @return
+	 */
+	boolean updateDicItem(Map<String, String[]> map);
+	
+	/**
+	 * 删除字典类型条目
+	 * @param id
+	 * @return
+	 */
+	boolean deleteDicItem(String id);
 }
