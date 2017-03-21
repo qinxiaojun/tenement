@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class DaoComponent {
 	@PersistenceContext
-	EntityManager em;
+	protected EntityManager em;
 	
 	@Transactional
 	public boolean delete(String id,Class cla)

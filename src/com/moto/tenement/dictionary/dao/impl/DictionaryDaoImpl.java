@@ -19,9 +19,6 @@ import com.moto.tenement.dictionary.model.DictionaryType;
 @Repository
 public class DictionaryDaoImpl extends DaoComponent implements DictionaryDao{
 
-	@PersistenceContext
-	EntityManager em;
-	
 	@Override
 	public List<DictionaryType> getDicList(String dicType) {
 //		String sql ="select dt.id,dt.status,dt.text,dt.code,di.id itemid," +
